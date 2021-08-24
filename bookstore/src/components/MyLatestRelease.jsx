@@ -12,21 +12,21 @@ render() {
       <>
         <Container>
         <Row>
-          <Col>
           {
             books.map(book => (
-
-              <Card key={book.asin} >
+              <Col key={book.asin}>
+              
+              <Card style={{ width: '14rem' }} >
               <Card.Img variant="top" src={book.img} />
               <Card.Body>
                 <Card.Title>{book.title}</Card.Title>
                 <Button variant="primary">Buy</Button>
               </Card.Body>
               </Card>
+          </Col>
             )
           )
           }
-          </Col>
         </Row>
         </Container>
       </>
