@@ -15,15 +15,13 @@ render() {
           {
             books.map(book => (
               <Col key={book.asin}>
-              
-              <Card style={{ width: '14rem' }} >
-              <Card.Img variant="top" src={book.img} />
-              <Card.Body>
-                <Card.Title>{book.title}</Card.Title>
-                <Button variant="primary">Buy</Button>
-              </Card.Body>
-              </Card>
-          </Col>
+                <Card style={{ width: '250px' }} >
+                  <Card.Img variant="top" src={book.img} style={{ height: '330px' }}/>
+                  <Card.Body style={{ height: '120px' }}>
+                    <Card.Title>{book.title}</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
             )
           )
           }

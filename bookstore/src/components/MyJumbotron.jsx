@@ -14,7 +14,7 @@ return (
         Take a look around and enjoy yourself!
       </p>
       <p>
-        <Button variant="primary">Learn more</Button>
+        <Button variant="primary">More Information</Button>
       </p>
   </Jumbotron>
 </Container>
