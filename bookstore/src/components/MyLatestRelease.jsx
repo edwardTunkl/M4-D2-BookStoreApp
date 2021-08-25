@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap"
+import {ListGroupItem, ListGroup, Container, Row, Col, Card, Button } from "react-bootstrap"
 
 import books from '../data/fantasy.json'
 
@@ -15,10 +15,15 @@ render() {
           {
             books.map(book => (
               <Col key={book.asin}>
-                <Card style={{ width: '250px' }} >
+                <Card style={{ width: '250px' }} className="bg-light">
                   <Card.Img variant="top" src={book.img} style={{ height: '330px' }}/>
-                  <Card.Body style={{ height: '120px' }}>
-                    <Card.Title>{book.title}</Card.Title>
+                  <Card.Body style={{ height: '210px' }}>
+                    <Card.Title style={{height: '70px'}} ><small>{book.title}</small></Card.Title>
+                    <ListGroup className="list-group-flush">
+                        <ListGroupItem className="p-1"><strong>ASIN: </strong>{book.asin} </ListGroupItem>
+                        <ListGroupItem className="p-1"><strong>PRICE: </strong>{book.price} €</ListGroupItem>
+                        <ListGroupItem className="p-1"><strong>CATEGORY: </strong>{book.category} </ListGroupItem>
+                        </ListGroup>
                   </Card.Body>
                 </Card>
               </Col>
