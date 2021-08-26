@@ -1,4 +1,4 @@
-import {ListGroupItem, ListGroup, Container, Row, Col, Card, Button } from "react-bootstrap"
+import {ListGroupItem, ListGroup, Container, Row, Col, Card, Button, Form } from "react-bootstrap"
 
 import books from '../data/fantasy.json'
 
@@ -9,7 +9,8 @@ class MyLatestRelease extends Component {
   
     state = {
           selected: false,
-          bookID: ""
+          bookID: "",
+          comments: []
     }
 
 
@@ -22,25 +23,20 @@ class MyLatestRelease extends Component {
     
 
     try {
-          let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/0765327740", {
+          let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/ASIN", {
             method: 'GET',
             headers:  {
               "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZjViYjJkNTI2MjAwMTViNmRjOTMiLCJpYXQiOjE2MjkyODc4NjcsImV4cCI6MTYzMDQ5NzQ2N30.HkhDkrIcH7q04AsuHParGAbLEKxc3bvsAnjh3DGfZIE"
             }
           })
           let comments = await response.json()
-
+          this.setState({comments})
           console.log(comments)
 
     }catch (err) {
       console.log(err)
     }
-
-
-
-
-
-    }
+   }
 
 
 render() {
@@ -56,13 +52,28 @@ render() {
                 style={{border: this.state.selected ? "1px solid grey" : "none"}}                              
                 >
                   <Card.Img variant="top" src={book.img} style={{ height: '230px' }}/>
+                    {
+                      (this.state.selected && this.state.comments.lenght !== 0) ?
+                      <div>
+                      <ListGroup>
+                        <ListGroup.Item>Some Comment</ListGroup.Item>
+                      </ListGroup>
+                      <Form>
+                      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Example textarea</Form.Label>
+                        <Form.Control as="textarea" rows={2} placeholder="Please enter comment here..."/>
+                      </Form.Group>
+                    </Form>
+                    </div>
+                      : ""
+                    }
                   <Card.Body style={{ height: '270px' }}>
                     <Card.Title style={{height: '90px'}} ><small>{book.title}</small></Card.Title>
                     <ListGroup className="list-group-flush">
                         <ListGroupItem className="p-1"><strong>ASIN: </strong>{book.asin} </ListGroupItem>
                         <ListGroupItem className="p-1"><strong>PRICE: </strong>{book.price} €</ListGroupItem>
                         <ListGroupItem className="p-1"><strong>CATEGORY: </strong>{book.category} </ListGroupItem>
-                        </ListGroup>
+                    </ListGroup>
                   </Card.Body>
                 </Card>
               </Col>
