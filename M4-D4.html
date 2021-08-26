@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+
+  <body>
+    <h2>Improve your Bookstore!</h2>
+
+    <h4>
+      Start from your previous React book store. We want you to give the user the ability to add comments to the books.
+      All the comments will be visible to everyone :)
+    </h4>
+
+    <pre>
+      <code>
+        API INFO:
+
+        You have a CRUD endpoint for comments on:
+
+        https://striveschool-api.herokuapp.com/api/comments/
+
+        This means you can GET, DELETE, POST, PUT data from there.
+
+        !IMPORTANT!
+        use your usual Authentication headers (grab a new token on https://strive.school/studentlogin if you're previous one is expired)
+
+
+        A comment object is structured in this way:
+
+        {
+          "comment": string
+          "rate": string,
+          "elementId": string
+        }
+
+        Where:
+        - "comment" is the text of comment inserted by the user
+        - "rate" is a value between 1 and 5
+        - "elementId" is the ASIN of the book
+
+        Example:
+        {
+          "comment": "A good book but definitely I don't like many parts of the plot",
+          "rate": "3",
+          "elementId": "0316438960"
+        }
+
+        !IMPORTANT!
+        Doing a GET on https://striveschool-api.herokuapp.com/api/comments/ will give you ALL the comments in the database.
+        Probably what you're most interested in is getting the comments of a single book at a time: for doing so
+        you'll have to specify the elementId/ASIN of the book in your url, like https://striveschool-api.herokuapp.com/api/comments/:elementId
+
+        Example:
+        https://striveschool-api.herokuapp.com/api/comments/0316438960
+
+        In this way you'll get all the comments for that specific book.
+
+      </code>
+    </pre>
+
+    <ol>
+      <li>
+        Add a CommentArea component at the end of your SingleBook. When the user clicks on a SingleBook, this component
+        should appear (hint: short-circuit!).
+      </li>
+      <li>
+        CommentArea should fetch and store the comments for the selected book, and contains two subcomponents:
+        CommentsList and AddComment.
+      </li>
+      <li>
+        CommentsList holds a list of comments about the selected book, the comments array is passed as a prop from
+        CommentArea. Each comment is made by the same SingleComment component.
+      </li>
+      <li>
+        AddComment contains a form for adding a text comment and a rating (from 1 to 5). This component should allow the
+        user to POST a new comment on the selected book.
+      </li>
+      <h3>EXTRA:</h3>
+      <li>
+        Add near to each comment a button for DELETING it. It should create a request towards
+        https://striveschool-api.herokuapp.com/api/comments/:commentId
+      </li>
+      <li>
+        Create a Loading component. This loading component should appear on the page when a remote request is ongoing.
+      </li>
+      <li>
+        Create an Error component. If something goes wrong with a network request, an error message should appear!
+      </li>
+      <p>Publish everything on GitHub by 5PM Berlin Time</p>
+    </ol>
+  </body>
+</html>
