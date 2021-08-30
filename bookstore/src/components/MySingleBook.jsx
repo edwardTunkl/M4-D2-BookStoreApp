@@ -23,9 +23,6 @@ class MySingleBook extends React.Component {
                 <Button className="mb-2"variant="dark"><small>Go somewhere</small></Button>
               </Card.Body>
               </Card>
-              {
-                this.state.selected && <CommentArea asin={this.props.book.asin} />
-              }
           </Container>
   )
 }

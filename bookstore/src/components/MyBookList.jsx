@@ -2,7 +2,7 @@ import React from "react"
 import { Container, Row, Col, Form } from "react-bootstrap"
 
 import MySingleBook from "./MySingleBook"
-
+import CommentArea from "./CommentArea"
 
 class MyBookList extends React.Component {
 
@@ -12,10 +12,9 @@ class MyBookList extends React.Component {
 
   render(){
       return(  
-          <Container>
             <Row>
-              <Col>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Row className="ml-4">     
+              <Form.Group className="mb-3">
                 <Form.Label>Search</Form.Label>
                 <Form.Control 
                 type="text" 
@@ -23,8 +22,7 @@ class MyBookList extends React.Component {
                 value={this.state.searchQuery}
                 onChange={e => this.setState({searchQuery: e.target.value})}
                 />
-              </Form.Group>
-            </Col>
+              </Form.Group>        
             </Row>
             <Row>
               {
@@ -35,7 +33,7 @@ class MyBookList extends React.Component {
                 ))
               }           
            </Row>
-           </Container>
+           </Row>
 )
 }
 }
