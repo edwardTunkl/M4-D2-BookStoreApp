@@ -1,18 +1,23 @@
 import React from "react"
-import { Container, Card, Button } from "react-bootstrap"
-import CommentArea from "./CommentArea"
+import { Container, Card} from "react-bootstrap"
 
 class MySingleBook extends React.Component {
 
     state = {
-          selected: false
+          selected: false,
+         
     }
 
+  
   render(){
+    console.log(this.props.book.asin)
     return (
           <Container>
-              <Card style={{ width: '10rem' }} 
-              onClick={() => this.setState({selected: !this.state.selected})}
+              <Card 
+              onClick={() => { 
+                this.setState({selected: !this.state.selected}); 
+                this.props.selectMovie(this.props.book.asin) 
+                  }}
               style={{border: this.state.selected ? "3px solid blue" : "none"}}
               >
               <Card.Img variant="top" src={this.props.book.img} />
@@ -20,12 +25,10 @@ class MySingleBook extends React.Component {
                 <Card.Title className="my-0 py-0"><small>{this.props.book.title}</small> </Card.Title>
                 <Card.Text>
                 </Card.Text>
-                <Button className="mb-2"variant="dark"><small>Go somewhere</small></Button>
               </Card.Body>
               </Card>
           </Container>
   )
 }
 }
-
 export default MySingleBook
