@@ -14,6 +14,7 @@ class MyBookList extends React.Component {
       return(  
           <Container>
             <Row>
+              <Col>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Search</Form.Label>
                 <Form.Control 
@@ -23,11 +24,12 @@ class MyBookList extends React.Component {
                 onChange={e => this.setState({searchQuery: e.target.value})}
                 />
               </Form.Group>
+            </Col>
             </Row>
             <Row>
               {
                 this.props.books.filter(b => b.title.toLowerCase().includes(this.state.searchQuery.toLowerCase())).map(b => ( 
-                      <Col xs={3}>
+                      <Col xs={3} key={b.asin} >
                       <MySingleBook book={b} />
                       </Col>
                 ))

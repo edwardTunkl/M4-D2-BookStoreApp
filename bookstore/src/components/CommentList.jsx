@@ -6,7 +6,7 @@ const CommentList = ({commentsToShow}) => (
         <ListGroup>
             {
                 commentsToShow.map(comment => ( 
-                     <SingleComment comment={comment} />
+                     <SingleComment comment={comment} key={comment._id} />
                 ))
             }
           </ListGroup>
