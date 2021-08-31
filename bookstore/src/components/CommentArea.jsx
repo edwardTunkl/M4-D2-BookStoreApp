@@ -36,9 +36,6 @@ class CommentArea extends Component {
       }
     }
 
-
-
-
   render(){
       return (
           <div style={{color:'black'}} > 

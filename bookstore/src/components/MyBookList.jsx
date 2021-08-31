@@ -35,13 +35,13 @@ class MyBookList extends React.Component {
                 <Card
                   onClick={() => {this.props.selectMovie(b.asin);
                   }}
+                  className="shadow mt-2"
                 >
-                  <Card.Img variant="top" src={b.img} />
-                  <Card.Body className="py-0">
+                  <Card.Img variant="top" src={b.img} style={{height:"290px"}}/>
+                  <Card.Body className="py-0" style={{height:"100px"}}>
                     <Card.Title className="my-0 py-0">
                       <small>{b.title}</small>
-                    </Card.Title>
-                    <Card.Text></Card.Text>
+                    </Card.Title>                  
                   </Card.Body>
                 </Card>
               </Col>

@@ -8,7 +8,7 @@ const MyJumbotron = ({name}) => {
 
 return (
   <Container>
-    <Jumbotron className="bg-warning py-4">
+    <Jumbotron style={{backgroundColor:"lightgoldenrodyellow"}}>
       <h1>Hello and welcome to {name} !</h1>
       <br />
       <p>
