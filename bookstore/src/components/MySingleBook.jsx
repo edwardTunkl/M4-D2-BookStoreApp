@@ -15,9 +15,9 @@ class MySingleBook extends React.Component {
           <Container>
               <Card 
               onClick={() => { 
-                this.setState({selected: !this.state.selected}); 
-                this.props.selectMovie(this.props.book.asin) 
-                  }}
+                      this.setState({selected: !this.state.selected}); 
+                      this.props.selectMovie(this.props.book.asin) 
+              }}
               style={{border: this.state.selected ? "3px solid blue" : "none"}}
               >
               <Card.Img variant="top" src={this.props.book.img} />

@@ -19,7 +19,7 @@ class App extends Component {
 
   selectMovie = (Asin) => {
     this.setState({
-      selectedAsin: Asin
+          selectedAsin: Asin
     })
   }
 
