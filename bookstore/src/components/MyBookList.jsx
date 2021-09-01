@@ -11,10 +11,9 @@ class MyBookList extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Row className="ml-4">
-          <Form.Group className="mb-3">
-            <Form.Label>Search</Form.Label>
+      <Row className="mt-5">
+        <Col className="justify-content-center">
+          <Form.Group className="mb-3 justify-content-center">            
             <Form.Control
               type="text"
               placeholder="Search here"
@@ -22,7 +21,7 @@ class MyBookList extends React.Component {
               onChange={(e) => this.setState({ searchQuery: e.target.value })}
             />
           </Form.Group>
-        </Row>
+        </Col>
         <Row>
           {this.props.books
             .filter((b) =>
