@@ -10,9 +10,9 @@ class CommentArea extends Component {
     comments:[]
   }
 
-  componentDidMount(){
-    this.fetchComments()
-  }
+  // componentDidMount(){
+  //   this.fetchComments()
+  // }
 
   componentDidUpdate(prevProps, prevState){
     if(prevProps.asin !== this.props.asin){

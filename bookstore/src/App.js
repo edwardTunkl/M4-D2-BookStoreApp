@@ -7,10 +7,10 @@ import MyBookList from "./components/MyBookList";
 import MySingleBook from "./components/MySingleBook";
 import CommentArea from "./components/CommentArea";
 import About from "./components/About";
-import Register from "./components/Register";
+import Registration from "./components/Registration";
 
 import books from "./data/fantasy.json";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { Component } from "react";
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
@@ -30,12 +30,10 @@ class App extends Component {
       <div style={{ backgroundColor: "lightGrey" }}>
         <Router>
             <MyNav name="myBookStore" />
-            <MyJumbotron name="myBookStore" />
-          <Rout component={About} path="/about" />
-          <Rout component={Register} path="/register" />  
-            <Container style={{ width: "300px" }}>
-              <MySingleBook book={books[5]} selectMovie={this.selectMovie} />
-            </Container>
+          <Route path="/" exact render={(routerProps) => <MyJumbotron {...routerProps} name="myBookStore" /> }/>
+          <Route component={About} path="/about" />
+          <Route component={Registration} path="/register" />  
+          <Route path="/" exact render={(routerProps) => <MySingleBook {...routerProps} book={books[5]} selectMovie={this.selectMovie} />} />
             <Row className="mx-3 my-2">
               <Col sm={8}>
                 <MyBookList books={books} selectMovie={this.selectMovie} />

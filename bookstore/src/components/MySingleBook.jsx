@@ -9,7 +9,7 @@ class MySingleBook extends React.Component {
   render() {
     console.log(this.props.book.asin);
     return (
-      <Container>
+      <Container style={{ width: "300px" }}>
         <Card
           onClick={() => {
             this.setState({ selected: !this.state.selected });

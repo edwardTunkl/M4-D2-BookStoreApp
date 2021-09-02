@@ -1,7 +1,7 @@
 import {Container, Navbar, Nav} from 'react-bootstrap'
-import { Link,withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
-const MyNav = ({name}, {location}) => {
+const MyNav = ({name, location}) => {
 
 return (
     <Container>
@@ -18,10 +18,10 @@ return (
                 className={location.pathname === '/about' ? 'nav-link active' : 'nav-link'}
                 >About</div>
             </Link>
-            <Link to="/about">
+            <Link to="/register">
                 <div 
                 className={location.pathname === '/register' ? 'nav-link active' : 'nav-link'}
-                >Register</div>
+                >Registration</div>
             </Link>
         </Nav>
       </Navbar>
