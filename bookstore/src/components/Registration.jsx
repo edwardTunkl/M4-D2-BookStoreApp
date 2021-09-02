@@ -4,22 +4,26 @@ import { Form, Button, Container } from "react-bootstrap";
 class Register extends Component {
 
       state={
+
             name:"",
             surname:"",
             email: "",
             password: "",
             confirmPassword: ""
-      }
+            }
 
-     handleSubmit =(e) => {
+          
+
+     handleSubmit = (e) => {
       e.preventDefault()
-        if(this.state.name.length<2){
+        if(this.state.name.length < 2){
           alert("Name with more than 1 Character, please")
-        } else if (this.state.surname.lenght<3){
+        } else if (this.state.surname.lenght < 3){
           alert("Surname with more than 2 Characters, please ")
-        } 
-
-    }
+        } else if (this.state.password === this.state.password.confirmPassword){
+          alert("Not the same")
+        }
+     }
 
 
   render() {
@@ -29,7 +33,7 @@ class Register extends Component {
           <Form onSubmit={this.handleSubmit} >
             <Form.Group>
               <Form.Control type="text" placeholder="Enter Name here" required value={this.state.name}
-                onChange={(e) => this.setState({ name: e.target.value })} />
+                onChange={(e) => this.setState({ name : e.target.value })} />
        
               <Form.Control type="text" placeholder="Enter Surname" required value={this.state.surname}
               onChange={(e) => this.setState({ surname: e.target.value })} />
